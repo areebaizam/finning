@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "20505dfd-8c43-49f4-8ee1-af3973307712",
+		"name": "Finning Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tUsername: \"finning\",\n\tPassword: \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5800/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5800",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shortened URL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImZpbm5pbmciLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE1NzQxMDM5OTIsImV4cCI6MTU3NDE5MDM5MiwiaWF0IjoxNTc0MTAzOTkyfQ.emeWHhcmFMmmXuvA5z4GaXIMQcehmeshUNNjqdtKU-kpdtXN-AcjLyiY3O_vgbiz5T9pvwBejPnst7llDwUc9Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\toriginalUrl: \"https://www.finning.com/en_CA/company\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5800/api/ShortUrls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5800",
+					"path": [
+						"api",
+						"ShortUrls"
+					]
+				},
+				"description": "Update bearer Token\nResend Request to check duplication\nSend Null Request to validate \n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shortened URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d48a3dc-5c30-4854-8c84-a00e68ae7277",
+						"exec": [
+							"pm.globals.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\toriginalUrl: \"https://www.finning.com/en_CA/company\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5800/api/ShortUrls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5800",
+					"path": [
+						"api",
+						"ShortUrls"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
